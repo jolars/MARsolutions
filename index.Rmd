@@ -1,0 +1,18 @@
+---
+title: "Solutions to A Modern Approach to Regression with R"
+author: "Johan Larsson"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+github-repo: jolars/MARsolutions
+description: "This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development."
+---
+
+# Preface {-}
+
+This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development.
+
+
+
