@@ -1,0 +1,13 @@
+bookdown::gitbook:
+  config:
+    toc:
+      collapse: section
+    fontsettings:
+      family: serif
+      size: 2
+    edit: https://github.com/jolars/MARsolutions/edit/master/%s
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  latex_engine: xelatex
+  keep_tex: yes
+bookdown::epub_book: default
