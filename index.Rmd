@@ -21,12 +21,25 @@ lattice::lattice.options(default.theme = list(
 
 options(digits = 2)
 
-
 ```
 
 # Preface {-}
 
 This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development.
+
+## Dependencies {-}
+
+You are going to need the following packages to run all the solutions in the
+book:
+
+```{r}
+library(readr)
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(lattice)
+library(latticeExtra)
+```
 
 
 
