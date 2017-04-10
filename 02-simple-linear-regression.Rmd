@@ -1,0 +1,73 @@
+# Simple linear regression
+
+## playbill
+First we load the data.
+
+```{r}
+playbill <- read_csv("http://www.stat.tamu.edu/~sheather/book/docs/datasets/playbill.csv")
+```
+
+Then we fit a linear model, $Y=\beta_0 + \beta_1 + e$
+and summarize it in Table \@ref(tab:pb_fit1).
+
+```{r, pb_fit1}
+pb_fit1 <- lm(CurrentWeek ~ LastWeek, data = playbill)
+kable(summary(pb_fit1)$coef,
+      booktabs = TRUE,
+      caption = "Coefficients our linear model.")
+```
+
+### a {-}
+The confidence intervals for $\beta_1$ are given by
+
+```{r}
+confint(pb_fit1)[2, ]
+```
+
+As per the question, 1 seems like a plausible value given that returns are
+likely to be similar from one week to another (although exactly 1
+is incredibly unlikely).
+
+### b {-}
+We proceed to test the hypotheses
+$$
+\begin{gather}
+H_0:\beta_0 = 10000 \\
+H_1:\beta_0 \neq 10000
+\end{gather}
+$$
+
+by running
+
+```{r}
+h_0 <- 10000
+h_obs <- coef(pb_fit1)[[1]]
+h_obs_se <- summary(pb_fit1)$coef[1, 2]
+
+tobs <- (h_obs - h_0) / h_obs_se
+(pobs <- 2 * pt(abs(tobs), nrow(playbill) - 2, lower.tail = FALSE))
+```
+
+which leads us to accept the null hypothesis, $t(16) = `r pobs`$.
+
+### c {-}
+We make a prediction, including prediction interval, for a 400,000\$$ box
+office result in the previous week:
+
+```{r}
+predict(pb_fit1, data.frame(LastWeek = 400000), interval = "prediction")
+```
+
+A prediction of 450,000\$$ is **not** feasible, given it is far outside
+our that our 95% prediction interval. 
+
+### d {-}
+This seems like an okay rule given the almost-perfect correlation from one
+week to another; however, looking at the residuals we see that there are at
+least three values that are predicted badly (Figure \@ref(fig:pb-resid))
+
+```{r pb-resid}
+par(mfrow = c(2, 2))
+plot(pb_fit1)
+```
+
