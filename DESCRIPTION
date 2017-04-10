@@ -1,6 +1,15 @@
-Package: placeholder
+Package: MARsolutions
 Title: Does not matter.
 Version: 0.0.1
-Imports: bookdown, lattice, latticeExtra, knitr, gridExtra, rmarkdown
+Imports:
+  bookdown,
+  lattice,
+  latticeExtra,
+  knitr,
+  gridExtra,
+  rmarkdown,
+  tidyr,
+  dplyr,
+  readr
 Remotes: rstudio/bookdown
 
