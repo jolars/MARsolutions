@@ -3,14 +3,14 @@
 ## playbill
 First we load the data.
 
-```{r}
-playbill <- read_csv("http://www.stat.tamu.edu/~sheather/book/docs/datasets/playbill.csv")
+```{r, message = FALSE}
+playbill <- read_csv(file.path("data", "playbill.csv"))
 ```
 
 Then we fit a linear model, $Y=\beta_0 + \beta_1 + e$
-and summarize it in Table \@ref(tab:pb_fit1).
+and summarize it in Table \@ref(tab:pb-fit1).
 
-```{r, pb_fit1}
+```{r, pb-fit1}
 pb_fit1 <- lm(CurrentWeek ~ LastWeek, data = playbill)
 kable(summary(pb_fit1)$coef,
       booktabs = TRUE,
@@ -48,25 +48,25 @@ tobs <- (h_obs - h_0) / h_obs_se
 (pobs <- 2 * pt(abs(tobs), nrow(playbill) - 2, lower.tail = FALSE))
 ```
 
-which leads us to accept the null hypothesis, $t(16) = `r pobs`$.
+which leads us to accept the null hypothesis, $t(16) = `r tobs`$, $p = `r pobs`$.
 
 ### c {-}
-We make a prediction, including prediction interval, for a 400,000\$$ box
+We make a prediction, including prediction interval, for a 400,000\$ box
 office result in the previous week:
 
 ```{r}
 predict(pb_fit1, data.frame(LastWeek = 400000), interval = "prediction")
 ```
 
-A prediction of 450,000\$$ is **not** feasible, given it is far outside
-our that our 95% prediction interval. 
+A prediction of 450,000\$ is **not** feasible, given it is far outside
+our 95% prediction interval. 
 
 ### d {-}
 This seems like an okay rule given the almost-perfect correlation from one
 week to another; however, looking at the residuals we see that there are at
 least three values that are predicted badly (Figure \@ref(fig:pb-resid))
 
-```{r pb-resid}
+```{r pb-resid, fig.cap = "Residuals for our linear fit to the playbill data."}
 par(mfrow = c(2, 2))
 plot(pb_fit1)
 ```
