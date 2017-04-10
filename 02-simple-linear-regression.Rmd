@@ -71,3 +71,59 @@ par(mfrow = c(2, 2))
 plot(pb_fit1)
 ```
 
+## Indicators
+
+```{r, message = FALSE}
+indicators <- read_csv(file.path("data", "indicators.txt"))
+```
+
+We begin by fitting our linear model to the data (Table \@ref(tab:indicators-summary)).
+
+```{r, indicators-summary}
+ind_fit1 <- lm(PriceChange ~ LoanPaymentsOverdue, data = indicators)
+kable(summary(ind_fit1)$coef,
+      booktabs = TRUE,
+      caption = "Coefficients for our linear model to the indicators data set.")
+```
+
+### a {-}
+The 95% confidence interval for the $\beta_1$ estimate is, as before:
+
+```{r}
+confint(ind_fit1)[2, ]
+```
+
+There is reason to believe that there is a negative trend.
+
+### b {-}
+We now create a confidence interval for $\text{E}[Y|X=4]$:
+
+```{r}
+predict(ind_fit1, data.frame(LoanPaymentsOverdue = 4), interval = "confidence")
+```
+
+0% is not a reasonable estimate for $\text{E}[Y|X=4]$ since the 95% confidence
+limit is far below 0.
+
+## Invoices
+
+### a {-}
+We first find a 95% confidence level for $\beta_0$ using the output printed in
+the book.
+
+```{r}
+beta0 <- 0.6417099
+beta0_se <- 0.122707
+beta0_t <- 5.248
+beta0_margin <- 1.96 * beta0_se
+(beta0_95 <- c(beta0 - beta0_margin, beta0 + beta0_margin))
+```
+
+Thus, the confidence limit it `r beta0_95`
+
+### b {-}
+
+
+
+
+

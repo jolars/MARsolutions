@@ -32,7 +32,7 @@ This book contains solutions to the problems in the book A Modern Approach to Re
 You are going to need the following packages to run all the solutions in the
 book:
 
-```{r}
+```{r, message = FALSE}
 library(readr)
 library(knitr)
 library(dplyr)
