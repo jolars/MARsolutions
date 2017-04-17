@@ -33,7 +33,6 @@ You are going to need the following packages to run all the solutions in the
 book:
 
 ```{r, message = FALSE}
-library(readr)
 library(knitr)
 library(dplyr)
 library(tidyr)

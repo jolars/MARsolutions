@@ -9,7 +9,6 @@ Imports:
   gridExtra,
   rmarkdown,
   tidyr,
-  dplyr,
-  readr
+  dplyr
 Remotes: rstudio/bookdown
 
