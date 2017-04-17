@@ -123,7 +123,50 @@ Thus, the confidence limit it `r beta0_95`
 
 ### b {-}
 
+We have the two-sided hypotheses
+$$\begin{gathered}
+H_0: \beta_1 = 0.01\\
+H_1: \beta_1 \neq 0.01.
+\end{gathered}$$
+
+```{r}
+beta <- 0.01
+beta_obs_se <- 0.0008184
+beta_obs <- 0.0112916
+tval <- (beta - beta_obs) / beta_obs_se
+(pobs <- 2 * pt(abs(tval), 30 - 1, lower.tail = FALSE))
+```
+
+We fail to reject the null hypothesis, $t(29) = `r tval`$, $p=`r pobs`$. We
+cannot say that the true average processing time is significantly 
+different from 0.01 hours.
+
+### c {-}
+
+From the exercise description we have the expected value
+\[
+\text{Time} = 0.6417099+\text{Invoices}\times 0.0112916
+\]
+for the series. Next, we'll predict the processing time for 130 invoices using
+the output given in the exercise.
+
+```{r}
+beta0 <- 0.6417099
+beta1 <- 0.0112916
+rse <- 0.3298
+n <- 30
+df <- n - 2
+rss <- rse^2 * df
+mse <- rss / n 
+
+time <- beta0 + beta1 * 130
+err <- qt(0.975, 28) * sqrt(mse) * sqrt(1 + 1 / n) # since x0 = xbar
+upr <- time + err
+lwr <- time - err
+```
+
+Which results in a point estimate of `r time`, 95% CI: $[`r lwr`, `r upr`]$.
 
 
-
+## Straight-line regression through the origin
 
