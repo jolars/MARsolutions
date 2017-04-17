@@ -4,7 +4,7 @@
 First we load the data.
 
 ```{r, message = FALSE}
-playbill <- read_csv(file.path("data", "playbill.csv"))
+playbill <- read.csv(file.path("data", "playbill.csv"))
 ```
 
 Then we fit a linear model, $Y=\beta_0 + \beta_1 + e$
@@ -74,7 +74,7 @@ plot(pb_fit1)
 ## Indicators
 
 ```{r, message = FALSE}
-indicators <- read_csv(file.path("data", "indicators.txt"))
+indicators <- read.csv(file.path("data", "indicators.csv"))
 ```
 
 We begin by fitting our linear model to the data (Table \@ref(tab:indicators-summary)).
@@ -169,4 +169,76 @@ Which results in a point estimate of `r time`, 95% CI: $[`r lwr`, `r upr`]$.
 
 
 ## Straight-line regression through the origin
+
+### a {-}
+
+We shall show that
+\[
+\hat{\beta} = \frac{\sum_{i=1}^n x_iy_i}{\sum_{i=1}^n x_i^2}.
+\]
+We have 
+\[
+Y_i = \beta x_i + e_i,
+\]
+which has the least-squares solution of
+\[
+\text{RSS} = \sum_{i=1}^n (y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-\hat{\beta}x_i)^2
+\]
+that is solved by setting its partial derivative with respect to $\beta$ to 0, 
+like so:
+\begin{align}
+\frac{\partial}{\partial \beta}\text{RSS} = -2 \sum_{i=1}^nx_i(y_i - \hat{\beta}x_i) & = 0 \iff \\
+\sum_{i=1}^nx_iy_i - \hat{\beta} \sum_{i=1}^n x_i^2 & = 0 \iff \\
+\hat{\beta} & = \frac{\sum_{i=1}^n x_i y_i}{\sum_{i=1}^nx_i} \tag*{$\square$}.
+\end{align}
+
+### b {-}
+
+1. \[
+     E(\hat{\beta} | X) = E\left( \frac{\sum_{i=1}^n x_i y_i}{\sum_{i=1}^n x_i^2} \right) = 
+       \frac{\sum_{i=1}^n x_i E(y_i)}{\sum_{i=1}^n x_i^2 } = \beta \frac{\sum_{i=1}^nx_i^2}{\sum_{i=1}^n x_i^2} = \beta \tag*{$\square$}
+   \]
+2. \[
+     \text{Var}(\hat{\beta}|X) = \text{Var} \left( \frac{\sum_{i=1}^nx_iy_i}{\sum_{i=1}^n x_i^2}\right) = 
+     \frac{\sum_{i=1}^n x_i^2\sigma^2}{\left( \sum_{i=1}^n x_i^2 \right)^2} = \frac{\sigma^2}{\sum_{i=1}^n x_i^2} \tag*{$\square$}
+   \]
+3. Follows from (1) and (2).
+
+## Multiple choices
+
+(d) is correct. SSreg is larger in model 1 because the model explains more
+of the variance, whilst RSS is smaller since there is less variance
+left unexplained.
+
+## SST = SSreg + RSS
+
+### a {-}
+
+\[
+y_i - \hat{y}_i = (y_i - \bar{y}) - (\hat{y}_i - \bar{y}) =
+  (y_i - \bar{y}) - (\hat{\beta}x_i - \hat{\beta}\bar{x}) = (y_i - \bar{y}) - \hat{\beta}(x_i - \bar{x}) \tag*{$\square$}
+\]
+
+### b {-}
+
+\[
+\hat{y}_i - \bar{y} = \hat{\beta}x_i - \hat{\beta}\bar{x} = \hat{\beta}(x_i - \bar{x}) \tag*{$\square$}
+\]
+
+### c {-}
+
+\[
+\begin{gathered}
+\sum_{i=1}^n (y_i-\hat{y}_i)(\hat{y}_i - \bar{y}) = \sum_{i=1}^n (y_i - \hat{\beta_0} - \hat{\beta_1}x_i)\hat{\beta}_1(x_i - \bar{x}) = \\
+\hat{\beta}_1 \left( \sum_{i=1}^n y_i(x_i \bar{x}) - \hat{\beta}_0 \sum_{i=1}^n x_i - \bar{x} - \hat{\beta}_1 \sum_{i=1}^n x_i(x_i - \bar{x}) \right) = \\
+\hat{\beta_1}(\text{SXY} - 0 - \hat{\beta_1} \text{SXX}) = \\
+\hat{\beta_1}(SXY - SXY) = 0 \qquad \square
+\end{gathered}
+\]
+
+## Confidence intervals
+
+It is possible since the confidence interval is designed to contain the
+population regression line 0.95 of the time and **not** 95% of the
+observations -- which is what the prediction interval is meant to do.
 
