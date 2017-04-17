@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Solutions to A Modern Approach to Regression with R</title>
   <meta name="description" content="This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development.">
-  <meta name="generator" content="bookdown 0.3.17 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.18 and GitBook 2.6.7">
 
   <meta property="og:title" content="Solutions to A Modern Approach to Regression with R" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Johan Larsson">
 
 
-<meta name="date" content="2017-04-10">
+<meta name="date" content="2017-04-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -49,6 +49,43 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 </head>
 
@@ -62,8 +99,38 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#dependencies"><i class="fa fa-check"></i>Dependencies</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>2</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="2.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#playbill"><i class="fa fa-check"></i><b>2.1</b> playbill</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b"><i class="fa fa-check"></i>b</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#c"><i class="fa fa-check"></i>c</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#d"><i class="fa fa-check"></i>d</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#indicators"><i class="fa fa-check"></i><b>2.2</b> Indicators</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-1"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-1"><i class="fa fa-check"></i>b</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#invoices"><i class="fa fa-check"></i><b>2.3</b> Invoices</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-2"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-2"><i class="fa fa-check"></i>b</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#c-1"><i class="fa fa-check"></i>c</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#straight-line-regression-through-the-origin"><i class="fa fa-check"></i><b>2.4</b> Straight-line regression through the origin</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-3"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-3"><i class="fa fa-check"></i>b</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#multiple-choices"><i class="fa fa-check"></i><b>2.5</b> Multiple choices</a></li>
+<li class="chapter" data-level="2.6" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#sst-ssreg-rss"><i class="fa fa-check"></i><b>2.6</b> SST = SSreg + RSS</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-4"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-4"><i class="fa fa-check"></i>b</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#c-2"><i class="fa fa-check"></i>c</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#confidence-intervals"><i class="fa fa-check"></i><b>2.7</b> Confidence intervals</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -84,12 +151,21 @@
 <div id="header">
 <h1 class="title">Solutions to A Modern Approach to Regression with R</h1>
 <h4 class="author"><em>Johan Larsson</em></h4>
-<h4 class="date"><em>2017-04-10</em></h4>
+<h4 class="date"><em>2017-04-17</em></h4>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
 <p>This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development.</p>
+<div id="dependencies" class="section level2 unnumbered">
+<h2>Dependencies</h2>
+<p>You are going to need the following packages to run all the solutions in the book:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tidyr)
+<span class="kw">library</span>(lattice)
+<span class="kw">library</span>(latticeExtra)</code></pre></div>
 
+</div>
 </div>
             </section>
 
@@ -137,6 +213,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

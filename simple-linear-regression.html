@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Solutions to A Modern Approach to Regression with R</title>
+  <meta name="description" content="This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development.">
+  <meta name="generator" content="bookdown 0.3.18 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Solutions to A Modern Approach to Regression with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development." />
+  <meta name="github-repo" content="jolars/MARsolutions" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Solutions to A Modern Approach to Regression with R" />
+  
+  <meta name="twitter:description" content="This book contains solutions to the problems in the book A Modern Approach to Regression With R, third edition, by Sheather. It is provided as a github repository so that anybody may contribute to its development." />
+  
+
+<meta name="author" content="Johan Larsson">
+
+
+<meta name="date" content="2017-04-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#dependencies"><i class="fa fa-check"></i>Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html"><i class="fa fa-check"></i><b>2</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="2.1" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#playbill"><i class="fa fa-check"></i><b>2.1</b> playbill</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b"><i class="fa fa-check"></i>b</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#c"><i class="fa fa-check"></i>c</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#d"><i class="fa fa-check"></i>d</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#indicators"><i class="fa fa-check"></i><b>2.2</b> Indicators</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-1"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-1"><i class="fa fa-check"></i>b</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#invoices"><i class="fa fa-check"></i><b>2.3</b> Invoices</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-2"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-2"><i class="fa fa-check"></i>b</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#c-1"><i class="fa fa-check"></i>c</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#straight-line-regression-through-the-origin"><i class="fa fa-check"></i><b>2.4</b> Straight-line regression through the origin</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-3"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-3"><i class="fa fa-check"></i>b</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#multiple-choices"><i class="fa fa-check"></i><b>2.5</b> Multiple choices</a></li>
+<li class="chapter" data-level="2.6" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#sst-ssreg-rss"><i class="fa fa-check"></i><b>2.6</b> SST = SSreg + RSS</a><ul>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#a-4"><i class="fa fa-check"></i>a</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#b-4"><i class="fa fa-check"></i>b</a></li>
+<li class="chapter" data-level="" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#c-2"><i class="fa fa-check"></i>c</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="simple-linear-regression.html"><a href="simple-linear-regression.html#confidence-intervals"><i class="fa fa-check"></i><b>2.7</b> Confidence intervals</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Solutions to A Modern Approach to Regression with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simple-linear-regression" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Simple linear regression</h1>
+<div id="playbill" class="section level2">
+<h2><span class="header-section-number">2.1</span> playbill</h2>
+<p>First we load the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">playbill &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;playbill.csv&quot;</span>))</code></pre></div>
+<p>Then we fit a linear model, <span class="math inline">\(Y=\beta_0 + \beta_1 + e\)</span> and summarize it in Table <a href="simple-linear-regression.html#tab:pb-fit1">2.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pb_fit1 &lt;-<span class="st"> </span><span class="kw">lm</span>(CurrentWeek ~<span class="st"> </span>LastWeek, <span class="dt">data =</span> playbill)
+<span class="kw">kable</span>(<span class="kw">summary</span>(pb_fit1)$coef,
+      <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,
+      <span class="dt">caption =</span> <span class="st">&quot;Coefficients our linear model.&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:pb-fit1">Table 2.1: </span>Coefficients our linear model.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">6804.89</td>
+<td align="right">9929.32</td>
+<td align="right">0.69</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="left">LastWeek</td>
+<td align="right">0.98</td>
+<td align="right">0.01</td>
+<td align="right">68.07</td>
+<td align="right">0.0</td>
+</tr>
+</tbody>
+</table>
+<div id="a" class="section level3 unnumbered">
+<h3>a</h3>
+<p>The confidence intervals for <span class="math inline">\(\beta_1\)</span> are given by</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(pb_fit1)[<span class="dv">2</span>, ]</code></pre></div>
+<pre><code>##  2.5 % 97.5 % 
+##   0.95   1.01</code></pre>
+<p>As per the question, 1 seems like a plausible value given that returns are likely to be similar from one week to another (although exactly 1 is incredibly unlikely).</p>
+</div>
+<div id="b" class="section level3 unnumbered">
+<h3>b</h3>
+<p>We proceed to test the hypotheses <span class="math display">\[
+\begin{gather}
+H_0:\beta_0 = 10000 \\
+H_1:\beta_0 \neq 10000
+\end{gather}
+\]</span></p>
+<p>by running</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">h_0 &lt;-<span class="st"> </span><span class="dv">10000</span>
+h_obs &lt;-<span class="st"> </span><span class="kw">coef</span>(pb_fit1)[[<span class="dv">1</span>]]
+h_obs_se &lt;-<span class="st"> </span><span class="kw">summary</span>(pb_fit1)$coef[<span class="dv">1</span>, <span class="dv">2</span>]
+
+tobs &lt;-<span class="st"> </span>(h_obs -<span class="st"> </span>h_0) /<span class="st"> </span>h_obs_se
+(pobs &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(tobs), <span class="kw">nrow</span>(playbill) -<span class="st"> </span><span class="dv">2</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>))</code></pre></div>
+<pre><code>## [1] 0.75</code></pre>
+<p>which leads us to accept the null hypothesis, <span class="math inline">\(t(16) = -0.32\)</span>, <span class="math inline">\(p = 0.75\)</span>.</p>
+</div>
+<div id="c" class="section level3 unnumbered">
+<h3>c</h3>
+<p>We make a prediction, including prediction interval, for a 400,000$ box office result in the previous week:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(pb_fit1, <span class="kw">data.frame</span>(<span class="dt">LastWeek =</span> <span class="dv">400000</span>), <span class="dt">interval =</span> <span class="st">&quot;prediction&quot;</span>)</code></pre></div>
+<pre><code>##     fit    lwr    upr
+## 1 4e+05 359833 439442</code></pre>
+<p>A prediction of 450,000$ is <strong>not</strong> feasible, given it is far outside our 95% prediction interval.</p>
+</div>
+<div id="d" class="section level3 unnumbered">
+<h3>d</h3>
+<p>This seems like an okay rule given the almost-perfect correlation from one week to another; however, looking at the residuals we see that there are at least three values that are predicted badly (Figure <a href="simple-linear-regression.html#fig:pb-resid">2.1</a>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(pb_fit1)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:pb-resid"></span>
+<img src="MARsolutions_files/figure-html/pb-resid-1.png" alt="Residuals for our linear fit to the playbill data." width="672" />
+<p class="caption">
+Figure 2.1: Residuals for our linear fit to the playbill data.
+</p>
+</div>
+</div>
+</div>
+<div id="indicators" class="section level2">
+<h2><span class="header-section-number">2.2</span> Indicators</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">indicators &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">file.path</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;indicators.csv&quot;</span>))</code></pre></div>
+<p>We begin by fitting our linear model to the data (Table <a href="simple-linear-regression.html#tab:indicators-summary">2.2</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ind_fit1 &lt;-<span class="st"> </span><span class="kw">lm</span>(PriceChange ~<span class="st"> </span>LoanPaymentsOverdue, <span class="dt">data =</span> indicators)
+<span class="kw">kable</span>(<span class="kw">summary</span>(ind_fit1)$coef,
+      <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,
+      <span class="dt">caption =</span> <span class="st">&quot;Coefficients for our linear model to the indicators data set.&quot;</span>)</code></pre></div>
+<table>
+<caption><span id="tab:indicators-summary">Table 2.2: </span>Coefficients for our linear model to the indicators data set.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Estimate</th>
+<th align="right">Std. Error</th>
+<th align="right">t value</th>
+<th align="right">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">4.5</td>
+<td align="right">3.3</td>
+<td align="right">1.4</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="even">
+<td align="left">LoanPaymentsOverdue</td>
+<td align="right">-2.2</td>
+<td align="right">0.9</td>
+<td align="right">-2.5</td>
+<td align="right">0.02</td>
+</tr>
+</tbody>
+</table>
+<div id="a-1" class="section level3 unnumbered">
+<h3>a</h3>
+<p>The 95% confidence interval for the <span class="math inline">\(\beta_1\)</span> estimate is, as before:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(ind_fit1)[<span class="dv">2</span>, ]</code></pre></div>
+<pre><code>##  2.5 % 97.5 % 
+##  -4.16  -0.33</code></pre>
+<p>There is reason to believe that there is a negative trend.</p>
+</div>
+<div id="b-1" class="section level3 unnumbered">
+<h3>b</h3>
+<p>We now create a confidence interval for <span class="math inline">\(\text{E}[Y|X=4]\)</span>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(ind_fit1, <span class="kw">data.frame</span>(<span class="dt">LoanPaymentsOverdue =</span> <span class="dv">4</span>), <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>)</code></pre></div>
+<pre><code>##    fit  lwr  upr
+## 1 -4.5 -6.6 -2.3</code></pre>
+<p>0% is not a reasonable estimate for <span class="math inline">\(\text{E}[Y|X=4]\)</span> since the 95% confidence limit is far below 0.</p>
+</div>
+</div>
+<div id="invoices" class="section level2">
+<h2><span class="header-section-number">2.3</span> Invoices</h2>
+<div id="a-2" class="section level3 unnumbered">
+<h3>a</h3>
+<p>We first find a 95% confidence level for <span class="math inline">\(\beta_0\)</span> using the output printed in the book.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beta0 &lt;-<span class="st"> </span><span class="fl">0.6417099</span>
+beta0_se &lt;-<span class="st"> </span><span class="fl">0.122707</span>
+beta0_t &lt;-<span class="st"> </span><span class="fl">5.248</span>
+beta0_margin &lt;-<span class="st"> </span><span class="fl">1.96</span> *<span class="st"> </span>beta0_se
+(beta0_95 &lt;-<span class="st"> </span><span class="kw">c</span>(beta0 -<span class="st"> </span>beta0_margin, beta0 +<span class="st"> </span>beta0_margin))</code></pre></div>
+<pre><code>## [1] 0.40 0.88</code></pre>
+<p>Thus, the confidence limit it 0.4, 0.88</p>
+</div>
+<div id="b-2" class="section level3 unnumbered">
+<h3>b</h3>
+<p>We have the two-sided hypotheses <span class="math display">\[\begin{gathered}
+H_0: \beta_1 = 0.01\\
+H_1: \beta_1 \neq 0.01.
+\end{gathered}\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beta &lt;-<span class="st"> </span><span class="fl">0.01</span>
+beta_obs_se &lt;-<span class="st"> </span><span class="fl">0.0008184</span>
+beta_obs &lt;-<span class="st"> </span><span class="fl">0.0112916</span>
+tval &lt;-<span class="st"> </span>(beta -<span class="st"> </span>beta_obs) /<span class="st"> </span>beta_obs_se
+(pobs &lt;-<span class="st"> </span><span class="dv">2</span> *<span class="st"> </span><span class="kw">pt</span>(<span class="kw">abs</span>(tval), <span class="dv">30</span> -<span class="st"> </span><span class="dv">1</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>))</code></pre></div>
+<pre><code>## [1] 0.13</code></pre>
+<p>We fail to reject the null hypothesis, <span class="math inline">\(t(29) = -1.58\)</span>, <span class="math inline">\(p=0.13\)</span>. We cannot say that the true average processing time is significantly different from 0.01 hours.</p>
+</div>
+<div id="c-1" class="section level3 unnumbered">
+<h3>c</h3>
+<p>From the exercise description we have the expected value <span class="math display">\[
+\text{Time} = 0.6417099+\text{Invoices}\times 0.0112916
+\]</span> for the series. Next, we’ll predict the processing time for 130 invoices using the output given in the exercise.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">beta0 &lt;-<span class="st"> </span><span class="fl">0.6417099</span>
+beta1 &lt;-<span class="st"> </span><span class="fl">0.0112916</span>
+rse &lt;-<span class="st"> </span><span class="fl">0.3298</span>
+n &lt;-<span class="st"> </span><span class="dv">30</span>
+df &lt;-<span class="st"> </span>n -<span class="st"> </span><span class="dv">2</span>
+rss &lt;-<span class="st"> </span>rse^<span class="dv">2</span> *<span class="st"> </span>df
+mse &lt;-<span class="st"> </span>rss /<span class="st"> </span>n 
+
+time &lt;-<span class="st"> </span>beta0 +<span class="st"> </span>beta1 *<span class="st"> </span><span class="dv">130</span>
+err &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dv">28</span>) *<span class="st"> </span><span class="kw">sqrt</span>(mse) *<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">1</span> +<span class="st"> </span><span class="dv">1</span> /<span class="st"> </span>n) <span class="co"># since x0 = xbar</span>
+upr &lt;-<span class="st"> </span>time +<span class="st"> </span>err
+lwr &lt;-<span class="st"> </span>time -<span class="st"> </span>err</code></pre></div>
+<p>Which results in a point estimate of 2.11, 95% CI: <span class="math inline">\([1.45, 2.77]\)</span>.</p>
+</div>
+</div>
+<div id="straight-line-regression-through-the-origin" class="section level2">
+<h2><span class="header-section-number">2.4</span> Straight-line regression through the origin</h2>
+<div id="a-3" class="section level3 unnumbered">
+<h3>a</h3>
+We shall show that <span class="math display">\[
+\hat{\beta} = \frac{\sum_{i=1}^n x_iy_i}{\sum_{i=1}^n x_i^2}.
+\]</span> We have <span class="math display">\[
+Y_i = \beta x_i + e_i,
+\]</span> which has the least-squares solution of <span class="math display">\[
+\text{RSS} = \sum_{i=1}^n (y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-\hat{\beta}x_i)^2
+\]</span> that is solved by setting its partial derivative with respect to <span class="math inline">\(\beta\)</span> to 0, like so:
+\begin{align}
+\frac{\partial}{\partial \beta}\text{RSS} = -2 \sum_{i=1}^nx_i(y_i - \hat{\beta}x_i) &amp; = 0 \iff \\
+\sum_{i=1}^nx_iy_i - \hat{\beta} \sum_{i=1}^n x_i^2 &amp; = 0 \iff \\
+\hat{\beta} &amp; = \frac{\sum_{i=1}^n x_i y_i}{\sum_{i=1}^nx_i} \tag*{$\square$}.
+\end{align}
+</div>
+<div id="b-3" class="section level3 unnumbered">
+<h3>b</h3>
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[
+ E(\hat{\beta} | X) = E\left( \frac{\sum_{i=1}^n x_i y_i}{\sum_{i=1}^n x_i^2} \right) = 
+   \frac{\sum_{i=1}^n x_i E(y_i)}{\sum_{i=1}^n x_i^2 } = \beta \frac{\sum_{i=1}^nx_i^2}{\sum_{i=1}^n x_i^2} = \beta \tag*{$\square$}
+   \]</span></li>
+<li><span class="math display">\[
+ \text{Var}(\hat{\beta}|X) = \text{Var} \left( \frac{\sum_{i=1}^nx_iy_i}{\sum_{i=1}^n x_i^2}\right) = 
+ \frac{\sum_{i=1}^n x_i^2\sigma^2}{\left( \sum_{i=1}^n x_i^2 \right)^2} = \frac{\sigma^2}{\sum_{i=1}^n x_i^2} \tag*{$\square$}
+   \]</span></li>
+<li>Follows from (1) and (2).</li>
+</ol>
+</div>
+</div>
+<div id="multiple-choices" class="section level2">
+<h2><span class="header-section-number">2.5</span> Multiple choices</h2>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>is correct. SSreg is larger in model 1 because the model explains more of the variance, whilst RSS is smaller since there is less variance left unexplained.</li>
+</ol>
+</div>
+<div id="sst-ssreg-rss" class="section level2">
+<h2><span class="header-section-number">2.6</span> SST = SSreg + RSS</h2>
+<div id="a-4" class="section level3 unnumbered">
+<h3>a</h3>
+<p><span class="math display">\[
+y_i - \hat{y}_i = (y_i - \bar{y}) - (\hat{y}_i - \bar{y}) =
+  (y_i - \bar{y}) - (\hat{\beta}x_i - \hat{\beta}\bar{x}) = (y_i - \bar{y}) - \hat{\beta}(x_i - \bar{x}) \tag*{$\square$}
+\]</span></p>
+</div>
+<div id="b-4" class="section level3 unnumbered">
+<h3>b</h3>
+<p><span class="math display">\[
+\hat{y}_i - \bar{y} = \hat{\beta}x_i - \hat{\beta}\bar{x} = \hat{\beta}(x_i - \bar{x}) \tag*{$\square$}
+\]</span></p>
+</div>
+<div id="c-2" class="section level3 unnumbered">
+<h3>c</h3>
+<p><span class="math display">\[
+\begin{gathered}
+\sum_{i=1}^n (y_i-\hat{y}_i)(\hat{y}_i - \bar{y}) = \sum_{i=1}^n (y_i - \hat{\beta_0} - \hat{\beta_1}x_i)\hat{\beta}_1(x_i - \bar{x}) = \\
+\hat{\beta}_1 \left( \sum_{i=1}^n y_i(x_i \bar{x}) - \hat{\beta}_0 \sum_{i=1}^n x_i - \bar{x} - \hat{\beta}_1 \sum_{i=1}^n x_i(x_i - \bar{x}) \right) = \\
+\hat{\beta_1}(\text{SXY} - 0 - \hat{\beta_1} \text{SXX}) = \\
+\hat{\beta_1}(SXY - SXY) = 0 \qquad \square
+\end{gathered}
+\]</span></p>
+</div>
+</div>
+<div id="confidence-intervals" class="section level2">
+<h2><span class="header-section-number">2.7</span> Confidence intervals</h2>
+<p>It is possible since the confidence interval is designed to contain the population regression line 0.95 of the time and <strong>not</strong> 95% of the observations – which is what the prediction interval is meant to do.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jolars/MARsolutions/edit/master/02-simple-linear-regression.Rmd",
+"text": "Edit"
+},
+"download": ["MARsolutions.pdf", "MARsolutions.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
