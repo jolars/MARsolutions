@@ -1,2 +1,0 @@
-# Diagnostics and Transformations for Simple Linear Regression
-
