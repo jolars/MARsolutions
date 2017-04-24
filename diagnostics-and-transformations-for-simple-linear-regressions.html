@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="simple-linear-regression.html">
+<link rel="prev" href="simple-linear-regression.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -166,18 +166,101 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>No exercises here.</p>
+<div id="diagnostics-and-transformations-for-simple-linear-regressions" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Diagnostics and transformations for simple linear regressions</h1>
+<div id="airfares" class="section level2">
+<h2><span class="header-section-number">3.1</span> Airfares</h2>
+<p>There is evidence of non-random variance and it looks like a square term might give a better fit. There is also which seems to be a “bad” one – it hold leverage over the model.</p>
+<p>However, the patterns of the residuals seem large because of the standardization of the residuals and whilst the non-linear pattern is apparent, modeling for it might not mean a much improved fit depending on how large it is.</p>
+<p>The biggest problem with the predictions would occur if we were to predict fares for trips between cities with a larger distances.</p>
+</div>
+<div id="true-or-false" class="section level2">
+<h2><span class="header-section-number">3.2</span> True or false</h2>
+<p>Yes, this is a reasonable statement. A rationale is provided below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)
+y &lt;-<span class="st"> </span>x +<span class="st"> </span>x ^<span class="st"> </span><span class="dv">2</span> +<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)
 
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">hist</span>(x)
+<span class="kw">hist</span>(y)</code></pre></div>
+<p><img src="MARsolutions_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+
+fit1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y ~<span class="st"> </span>x)
+fit2 &lt;-<span class="st"> </span><span class="kw">lm</span>(y ~<span class="st"> </span>x +<span class="st"> </span><span class="kw">I</span>(x ^<span class="st"> </span><span class="dv">2</span>))
+<span class="kw">anova</span>(fit1, fit2)</code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: y ~ x
+## Model 2: y ~ x + I(x^2)
+##   Res.Df RSS Df Sum of Sq   F Pr(&gt;F)    
+## 1     98 365                            
+## 2     97  90  1       275 298 &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="third" class="section level2">
+<h2><span class="header-section-number">3.3</span> third</h2>
+<p>Solved previously.</p>
+</div>
+<div id="tryfos-1988" class="section level2">
+<h2><span class="header-section-number">3.4</span> Tryfos 1988</h2>
+<div id="a-5" class="section level3 unnumbered">
+<h3>a</h3>
+<p>No. It seems as if variance is increasing with higher <em>tonnages</em>. There is also evidence of some bimodality and outliers. Moreover, the distribution of the residuals is somewhat non-random.</p>
+</div>
+<div id="b-5" class="section level3 unnumbered">
+<h3>b</h3>
+<p>The prediction interval would probably be too short or perhaps even valid. We expect the intervals for the model to be too high for high tonnages and too low for low tonnages.</p>
+</div>
+<div id="c-3" class="section level3 unnumbered">
+<h3>c</h3>
+<p>It appears to be something of an improvement. The residuals appear “more” random. Prediction intervals are likely to be more valid for this model because of the more random residuals.</p>
+</div>
+<div id="d-1" class="section level3 unnumbered">
+<h3>d</h3>
+<p>The residuals’ variance decreases for higher tonnages. The distribution of the residuals is heavy-tailed.</p>
+</div>
+</div>
+<div id="cars" class="section level2">
+<h2><span class="header-section-number">3.5</span> Cars</h2>
+<div id="a-6" class="section level3 unnumbered">
+<h3>a</h3>
+<p>This interpretation is based solely on a general hypothesis test and the coefficient of determination, which might be very misleading and says little about the assumptions of regression.</p>
+</div>
+<div id="b-6" class="section level3 unnumbered">
+<h3>b</h3>
+<ul>
+<li>There is at least one leverage point which requires further examination, potentially removal.</li>
+<li>The residuals are not normally distributed as they are light-tailed. We need to examine this and perhaps transform the data or fit a new model.</li>
+<li>The variance shows non-random patterns. It looks almost as if there are three different groups in the data and we might need to look at the data to see if there are any categorical variables that might need to be included to get a better fit.</li>
+</ul>
+</div>
+<div id="c-4" class="section level3 unnumbered">
+<h3>c</h3>
+<p>The 3.11 model is a slight improvement in that it has</p>
+<ul>
+<li>better-distributed errors,</li>
+<li>less influence given to the outlier, and</li>
+<li>not-as-appearant patterns in the residuals.</li>
+</ul>
+</div>
+<div id="d-2" class="section level3 unnumbered">
+<h3>d</h3>
+</div>
+</div>
+<div id="sixth" class="section level2">
+<h2><span class="header-section-number">3.6</span> sixth</h2>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="simple-linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="simple-linear-regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -206,7 +289,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jolars/MARsolutions/edit/master/01-introduction.Rmd",
+"link": "https://github.com/jolars/MARsolutions/edit/master/03-diagnostics-and-transformations-for-simple-linear-regression.Rmd",
 "text": "Edit"
 },
 "download": ["MARsolutions.pdf", "MARsolutions.epub"],
